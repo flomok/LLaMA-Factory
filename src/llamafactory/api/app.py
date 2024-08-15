@@ -11,6 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+# 创建并运行一个基于 FastAPI 的 Web API 服务，用于处理与聊天模型（例如 GPT-3.5-turbo）的交互。
+# 交互包括列出可用模型、生成聊天响应、评估模型得分等。通过环境变量配置 API 密钥、主机和端口，以确保服务的安全性和灵活性。
 
 import os
 from contextlib import asynccontextmanager
