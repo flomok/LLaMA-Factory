@@ -16,7 +16,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 构建和配置模型训练过程中的优化器和调度器。
+# 导入模块和依赖：导入了 PyTorch 和 Transformers 库的相关模块，用于模型训练和优化。
+# 根据需要从外部库（如 galore_torch 和 badam）导入不同的优化器。
+# 定义 DummyOptimizer 类：一个占位符优化器类，用于 GaLore 算法中，实际不进行梯度更新和参数优化，只用作接口实现。
+# 创建模型卡和推送：create_modelcard_and_push 函数用于创建模型卡并将其推送到模型库或本地创建模型卡，包含了模型的任务和标签信息。
+# 创建参考模型：create_ref_model 函数根据训练参数创建一个参考模型，这对于某些训练方法（如 PPO/DPO）很重要。可以从已有模型中创建，也可以从模型自身创建。
+# 创建奖励模型：create_reward_model 函数用于创建奖励模型，这对于 PPO 训练非常关键。可以从预训练模型加载奖励头，也可以从 URL 或其他资源中加载奖励模型。
+# 获取带权重衰减的参数名称：_get_decay_parameter_names 函数用于获取需要权重衰减的参数名称（通常是非层归一化层的权重）。
+# 创建 GaLore 优化器：_create_galore_optimizer 函数创建 GaLore 优化器，并支持不同的参数组（例如权重衰减和 GaLore 参数）的处理。
+# 创建 LoRA+ 优化器：_create_loraplus_optimizer 函数创建 LoRA+ 优化器，支持不同的学习率设置和参数组。
+# 创建 BAdam 优化器：_create_badam_optimizer 函数创建 BAdam 优化器，支持按层更新或按比率更新。
+# 创建 Adam-mini 优化器：_create_adam_mini_optimizer 函数创建 Adam-mini 优化器，适用于大规模模型的训练。
+# 创建自定义优化器：create_custom_optimizer 函数根据训练参数选择合适的优化器（如 GaLore、LoRA+、BDam、Adam-mini）。
+# 创建自定义学习率调度器：create_custom_scheduler 函数创建自定义的学习率调度器，支持不同的学习率调度策略。
 from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Tuple, Union
 
 import torch
