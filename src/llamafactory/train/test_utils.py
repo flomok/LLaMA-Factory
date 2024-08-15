@@ -11,7 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 功能主要用于模型的加载、比较和验证，特别是在涉及训练和推理时。
+# compare_model: 比较两个模型的权重，检查指定的权重键是否在给定的容差范围内相等。可以用于验证模型的状态是否一致。
+# check_lora_model: 验证 Lora 模型的参数，检查是否符合预期的类型和要求，区分了线性模块和额外模块，并检查参数的 requires_grad 属性和数据类型。
+# load_train_model 和 load_infer_model: 加载用于训练和推理的模型，使用 get_train_args 和 get_infer_args 函数来获取模型和训练参数，然后加载相应的模型和分词器。load_train_model 函数还可以选择是否添加价值头（valuehead）。
+# load_reference_model: 根据给定路径加载参考模型，支持使用 LoRA（Low-Rank Adaptation）和 PISSA（PISA Scale Adaptation）策略，并可选择是否添加价值头（valuehead）。
+# load_train_dataset: 加载训练数据集，使用 get_dataset 函数和模型分词器来获取数据集。
+# patch_valuehead_model: 为 AutoModelForCausalLMWithValueHead 模型添加一个 post_init 方法，以便正确加载模型的价值头（valuehead）的状态字典。
 from typing import TYPE_CHECKING, Dict, Optional, Sequence, Set, Tuple, Union
 
 import torch
