@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# 定义了一个用于聊天模型推理和评估的抽象基类 BaseEngine，以及一个数据类 Response，它们主要用于创建可扩展的生成引擎接口。这些代码通过抽象方法提供了标准化的接口，使得不同的具体实现可以遵循相同的结构
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any, AsyncGenerator, Dict, List, Literal, Optional, Sequence, Union
