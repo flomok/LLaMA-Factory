@@ -11,7 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 定义了一些用于处理模型训练过程中的回调函数,这些回调函数用于处理和管理模型的训练过程，包括检查点保存、适配器转换、处理器保存以及日志记录
+# fix_valuehead_checkpoint: 处理和保存包含 v_head 的模型检查点。根据模型的保存格式（安全序列化或普通序列化），从检查点中提取 decoder 和 v_head 的状态字典，并将它们分别保存。
+# FixValueHeadModelCallback: 在训练过程中，每当保存检查点时调用 fix_valuehead_checkpoint 来修复和保存 v_head 模型。
+# SaveProcessorCallback: 在训练结束时保存处理器（例如图像处理器），用于将处理器的状态保存到指定目录。
+# PissaConvertCallback: 处理 PiSSA 适配器的转换。在训练开始时保存 PiSSA 适配器的初始状态，在训练结束时将其转换为普通的 LoRA 适配器，并保存转换后的状态和备份。
+# LogCallback: 用于记录训练过程中的各种信息，包括步骤进度、时间、损失、学习率等。它会在训练过程的不同阶段（如开始、结束、每一步）记录日志，并在训练过程中更新和计算预计剩余时间。支持 Web UI 记录和显示日志信息。
 import json
 import logging
 import os
