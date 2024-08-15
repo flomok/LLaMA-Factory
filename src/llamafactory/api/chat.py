@@ -11,7 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 为一个基于聊天模型的服务提供了 API 接口。
+# 它负责接收用户的聊天请求，进行必要的预处理，调用聊天模型生成响应，最终通过 API 返回处理后的结果。
+# 这个服务支持普通的聊天完成、流式响应、以及对聊天内容的评分评估。
 import base64
 import io
 import json
