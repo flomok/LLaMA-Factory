@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# HuggingfaceEngine 类为 Hugging Face 的模型提供了对话生成、流式生成和评分的功能。它结合了异步编程和多线程来提高性能，并通过静态方法处理模型的具体生成逻辑。
 import asyncio
 import concurrent.futures
 import os
