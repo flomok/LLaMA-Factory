@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# VllmEngine 类提供了与 VLLM 模型交互的接口，支持对话生成、流式生成，并且可以处理视觉输入。通过调整生成参数和处理图像数据，它能够满足不同的应用场景。
 import uuid
 from typing import TYPE_CHECKING, Any, AsyncGenerator, AsyncIterator, Dict, List, Optional, Sequence, Union
 
