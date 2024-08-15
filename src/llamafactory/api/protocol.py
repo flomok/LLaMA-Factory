@@ -11,7 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 是一个基于 Pydantic 定义的数据模型集合，
+# 这些数据模型主要用于处理与聊天、功能调用、模型元数据、以及评分评估相关的数据。通过使用 Pydantic，这些模型可以对数据进行自动验证和解析，确保数据结构的正确性和一致性
 import time
 from enum import Enum, unique
 from typing import Any, Dict, List, Optional, Union
