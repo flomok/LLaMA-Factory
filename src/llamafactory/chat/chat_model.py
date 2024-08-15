@@ -14,7 +14,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 定义了一个基于命令行界面的聊天应用程序，它允许用户与模型进行交互。代码核心包括 ChatModel 类的实现，它封装了模型推理的逻辑，并通过异步方法处理用户输入的聊天信息。
 import asyncio
 import os
 from threading import Thread
