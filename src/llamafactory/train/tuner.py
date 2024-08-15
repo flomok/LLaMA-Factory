@@ -11,7 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# 用于运行实验和导出模型：
+# run_exp:功能: 运行指定阶段的模型训练任务。
+#     详细描述: 根据 finetuning_args.stage 的值（例如 "pt"、"sft"、"rm"、"ppo"、"dpo"、"kto"），调用相应的训练函数来执行指定的任务，支持多个训练阶段的选择。
+# export_model:功能: 导出训练好的模型及其相关资源。
+#     详细描述: 保存模型到指定的目录，并根据需要上传到模型中心。处理包括设置模型的数据类型（如量化模型的 float16 类型）、复制附加的权重文件（如 V_HEAD_SAFE_WEIGHTS_NAME）、以及保存和上传分词器及其相关资源。如果发生错误，记录警告信息并提示手动处理。
 import os
 import shutil
 from typing import TYPE_CHECKING, Any, Dict, List, Optional
